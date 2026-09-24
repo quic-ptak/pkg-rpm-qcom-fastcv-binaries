@@ -2,9 +2,9 @@
 
 Name:           qcom-fastcv-binaries
 Version:        1.8.9
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Qualcomm FastCV - DSP binaries and optimized CV library
-License:        Qualcomm.nologin.binaries.license
+License:        LicenseRef-Qualcomm-nologin-binaries
 URL:            https://www.qualcomm.com/developer/software/qualcomm-fastcv-sdk
 Source0:        https://qartifactory-edge.qualcomm.com/artifactory/qsc_releases/software/chip/component/computervision-fastcv.qclinux.0.1/260805/prebuilt_trixie/qcom-fastcv-binaries_1.8.9_arm64.tar.gz
 
@@ -84,23 +84,30 @@ install -m 0755 qcom-fastcv-binaries1/arm64/usr/bin/fastcv_simple_test64 %{build
 find %{buildroot} -name '*.la' -delete
 
 %files
+%license LICENSE.qcom-2
 %{_libdir}/dsp/
 
 %files -n libfastcvopt1
+%license LICENSE.qcom-2
 %{_libdir}/libfastcvopt.so.1
 %{_libdir}/libfastcvopt.so.1.8.0
 %{_libdir}/libfastcvdsp_stub.so.1
 %{_libdir}/libfastcvdsp_stub.so.1.8.0
 
 %files -n libfastcvopt-devel
+%license LICENSE.qcom-2
 %{_includedir}/fastcv/
 %{_libdir}/libfastcvopt.so
 %{_libdir}/libfastcvdsp_stub.so
 %{_libdir}/pkgconfig/
 
 %files utils
+%license LICENSE.qcom-2
 %{_bindir}/fastcv_simple_test64
 
 %changelog
-* Wed Aug 13 2026 Pulkit Siingh Tak <ptak@qti.qualcomm.com> - 1.8.9-1
+* Thu Sep 24 2026 Pulkit Singh Tak <ptak@qti.qualcomm.com> - 1.8.9-2
+- Add rules to install License file .
+
+* Wed Aug 13 2026 Pulkit Singh Tak <ptak@qti.qualcomm.com> - 1.8.9-1
 - Initial RPM packaging of qcom-fastcv-binaries prebuilt libraries version 1.8.9
